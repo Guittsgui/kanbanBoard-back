@@ -1,4 +1,4 @@
-import {sequelize} from '../instances/mysql'
+import {sequelize} from '../instances/mysql.js'
 import { DataTypes } from 'sequelize'
 
 export const Task = sequelize.define("Task",{
