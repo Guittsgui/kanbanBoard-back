@@ -17,7 +17,7 @@ app.use(express.urlencoded({
     extended:true,
 }),)
 
-app.unsubscribe(express.json())
+app.use(express.json())
 
 app.use(routes)
 app.use((request, response) => {
