@@ -26,6 +26,6 @@ export const Task = sequelize.define("Task",{
     }    
 
 },{
-    tableName: "",
+    tableName: "task",
     timestamps: false
 })

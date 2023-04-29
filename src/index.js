@@ -20,6 +20,7 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 app.use(routes)
+
 app.use((request, response) => {
     response.status(404).json({error: "Página não Encontrada."})
 })

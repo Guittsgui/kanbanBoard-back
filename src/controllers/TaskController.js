@@ -2,7 +2,8 @@ import {Task} from './../model/TaskModel.js'
 
 class TaskController{
 
-    store(request, response){
+    async store(request, response){
+        console.log(request.body)
         const {title, body, type , date} = request.body
         if(!title || !body || !type){
             response.status(404).json({msg: "Dados Faltando"})
@@ -14,12 +15,13 @@ class TaskController{
             type: type,
             date: date
         }
-        Task.create(newTask)
+        await Task.create(newTask)
         response.status(202).json({msg: "Task Criada com Sucesso"})
+        console.log('bateuaqui')
     }
 
-    showAllTasks(){
-
+    showAllTasks(request, response){
+        response.status(200).json({msg: "deu tudo certo"})
     }
 
     showTaskById(){
