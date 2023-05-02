@@ -20,17 +20,18 @@ class TaskController{
         console.log('bateuaqui')
     }
 
-    showAllTasks(request, response){
-        response.status(200).json({msg: "deu tudo certo"})
+    async showTasksbyType(request, response){
+        const type = request.params.type
+        console.log(`o type é ${type}`)
+        const list = await Task.findAll({where: {type: type}})
+        response.status(200).json(list)
     }
 
     showTaskById(){
-
+        
     }
 
-    showTasksbyType(){
-
-    }
+   
 
     deleteTaskbyId(){
 
