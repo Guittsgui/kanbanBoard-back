@@ -17,25 +17,29 @@ class TaskController{
         }
         await Task.create(newTask)
         response.status(202).json({msg: "Task Criada com Sucesso"})
-        console.log('bateuaqui')
     }
 
     async showTasksbyType(request, response){
         const type = request.params.type
-        console.log(`o type é ${type}`)
         const list = await Task.findAll({where: {type: type}})
         response.status(200).json(list)
     }
 
-    showTaskById(){
-        
+    deleteTaskbyId(request, response){
+        const id = request.params.id
+        Task.destroy({where: {id: id}})
+    }
+
+    async showTaskById(request, response){
+        const id = request.params.id
+        const task = await Task.findAll({where: {id: id}})
+        response.status(200).json(task[0])
+        console.log(task[0])
     }
 
    
 
-    deleteTaskbyId(){
 
-    }
 
 }
 
